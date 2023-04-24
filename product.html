@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <title>Image to Text Converter</title>
+    <script>
+      function readImage() {
+        //check if file is an image
+        if (
+          !document
+            .getElementById("uploaded-image")
+            .files[0].type.match(/image\/*/)
+        ) {
+          alert("Please select a valid image file");
+          return;
+        }
+
+        //get image file
+        let imageFile = document.getElementById("uploaded-image").files[0];
+
+        //initialize a new FileReader object
+        let reader = new FileReader();
+
+        //onload
+        reader.onload = function (e) {
+          //get the image source
+          let source = e.target.result;
+
+          //initialize a new Image object
+          let img = new Image();
+
+          //onload
+          img.onload = function () {
+            //get canvas context
+            let canvas = document.createElement("canvas");
+            let ctx = canvas.getContext("2d");
+            canvas.width = img.width;
+            canvas.height = img.height;
+            ctx.drawImage(img, 0, 0);
+
+            //get text from the image
+            let text = ctx.getImageData(0, 0, img.width, img.height).data;
+
+            //display the text
+            document.getElementById("image-text").innerHTML = text;
+          };
+
+          //set image source
+          img.src = source;
+        };
+
+        //read image
+        reader.readAsDataURL(imageFile);
+      }
+    </script>
+  </head>
+  <body>
+    <input
+      type="file"
+      id="uploaded-image"
+      accept="image/*"
+      onchange="readImage()"
+    />
+    <p id="image-text"></p>
+  </body>
+</html>
