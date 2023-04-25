@@ -1,6 +1,6 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <title>Image to Text Converter</title>
     <script>
       function readImage() {
         //check if file is an image
@@ -51,14 +51,55 @@
         reader.readAsDataURL(imageFile);
       }
     </script>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+    <title>Image to Text Converter</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic&amp;display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=ABeeZee&amp;display=swap"
+    />
+    <link rel="stylesheet" href="assets/css/Team-Horizontal-icons.css" />
+    <link rel="stylesheet" href="assets/css/Team-Horizontal-images.css" />
   </head>
-  <body>
+
+  <body
+    style="
+      font-size: 25px;
+      font-family: ABeeZee, sans-serif;
+      box-shadow: inset 0px 0px var(--bs-pink);
+      transform: perspective(400px);
+    "
+  >
     <input
       type="file"
-      id="uploaded-image"
-      accept="image/*"
-      onchange="readImage()"
+      style="
+        padding-bottom: 0px;
+        margin-bottom: 84px;
+        margin-top: 257px;
+        padding-left: 466px;
+      "
+      name="ChooseFilo"
+    /><input
+      class="btn btn-primary"
+      type="submit"
+      style="
+        padding-right: 13px;
+        padding-left: 10px;
+        margin-right: 0px;
+        padding-bottom: 11px;
+        margin-left: -470px;
+        margin-top: 172px;
+      "
     />
-    <p id="image-text"></p>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/stylish-portfolio.js"></script>
   </body>
 </html>
